@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .f{font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif}
+    .sh{filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8))}
+    @keyframes glow{0%,100%{opacity:0}50%{opacity:.35}}
+    .gGlow{animation:glow 3s ease-in-out infinite}
+    .rGlow{animation:glow 3s ease-in-out infinite;animation-delay:1.5s}
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- headers -->
+  <g>
+    <circle cx="380" cy="170" r="30" fill="none" stroke="#00FF10" stroke-width="5"/>
+    <path d="M 366 171 L 376 182 L 395 158" fill="none" stroke="#00FF10" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="f sh" x="440" y="170" font-size="46" letter-spacing="6" fill="#00FF10" dominant-baseline="central">REPLICATE</text>
+  </g>
+  <g>
+    <circle cx="1240" cy="170" r="30" fill="none" stroke="#EF4444" stroke-width="5"/>
+    <path d="M 1229 159 L 1251 181 M 1251 159 L 1229 181" fill="none" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+    <text class="f sh" x="1300" y="170" font-size="46" letter-spacing="6" fill="#EF4444" dominant-baseline="central">AVOID</text>
+  </g>
+
+  <!-- positive card -->
+  <rect class="gGlow" x="139" y="249" width="782" height="682" rx="24" fill="none" stroke="#00FF10" stroke-width="3"/>
+  <rect x="150" y="260" width="760" height="660" rx="18" fill="rgba(0,255,16,0.07)" stroke="#00FF10" stroke-width="4"/>
+  <g class="f sh" font-size="34" fill="#FFFFFF">
+    <text x="260" y="360" dominant-baseline="central">Most important information last</text>
+    <text x="260" y="470" dominant-baseline="central">Plain, specific language</text>
+    <text x="260" y="580" dominant-baseline="central">State each fact once</text>
+    <text x="260" y="690" dominant-baseline="central">Challenge wrong assumptions</text>
+    <text x="260" y="800" dominant-baseline="central">One paragraph over two</text>
+  </g>
+  <g fill="none" stroke="#00FF10" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 200 360 L 212 372 L 232 346"/>
+    <path d="M 200 470 L 212 482 L 232 456"/>
+    <path d="M 200 580 L 212 592 L 232 566"/>
+    <path d="M 200 690 L 212 702 L 232 676"/>
+    <path d="M 200 800 L 212 812 L 232 786"/>
+  </g>
+
+  <!-- negative card -->
+  <rect class="rGlow" x="999" y="249" width="782" height="682" rx="24" fill="none" stroke="#EF4444" stroke-width="3"/>
+  <rect x="1010" y="260" width="760" height="660" rx="18" fill="rgba(239,68,68,0.06)" stroke="#EF4444" stroke-width="4"/>
+  <g class="f sh" font-size="34" fill="rgba(255,255,255,0.85)">
+    <text x="1120" y="360" dominant-baseline="central">&#8220;load-bearing&#8221;</text>
+    <text x="1120" y="470" dominant-baseline="central">&#8220;worth stating plainly&#8221;</text>
+    <text x="1120" y="580" dominant-baseline="central">&#8220;You&#8217;re absolutely right!&#8221;</text>
+    <text x="1120" y="690" dominant-baseline="central">em dash &#8212; chain &#8212; ing</text>
+    <text x="1120" y="800" dominant-baseline="central">Flattery, emoji, filler</text>
+  </g>
+  <g fill="none" stroke="#EF4444" stroke-width="5" stroke-linecap="round">
+    <path d="M 1060 348 L 1084 372 M 1084 348 L 1060 372"/>
+    <path d="M 1060 458 L 1084 482 M 1084 458 L 1060 482"/>
+    <path d="M 1060 568 L 1084 592 M 1084 568 L 1060 592"/>
+    <path d="M 1060 678 L 1084 702 M 1084 678 L 1060 702"/>
+    <path d="M 1060 788 L 1084 812 M 1084 788 L 1060 812"/>
+  </g>
+
+  <!-- caption -->
+  <text class="f" x="960" y="1000" font-size="30" letter-spacing="3" fill="rgba(255,255,255,0.5)" text-anchor="middle" dominant-baseline="central">WRITE WHAT YOU WANT TO SEE, AND WHAT YOU NEVER WANT TO SEE</text>
+</svg>

@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .f { font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif; }
+    .sh { filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8)); }
+    .sh2 { filter:drop-shadow(3px 3px 6px rgba(0,0,0,.9)); }
+    /* Looping build: one 14s cycle, every delay baked into keyframe offsets */
+    @keyframes kcard { 0%,1.071% { opacity:0; animation-timing-function:cubic-bezier(.33,1,.68,1); } 7.143%,100% { opacity:1; } }
+
+    /* body rows fade in, staggered 900+75k ms */
+    @keyframes kb1 { 0%,6.429% { opacity:0; } 8.714%,100% { opacity:1; } }
+    @keyframes kb2 { 0%,6.964% { opacity:0; } 9.25%,100% { opacity:1; } }
+    @keyframes kb3 { 0%,7.5% { opacity:0; } 9.786%,100% { opacity:1; } }
+    @keyframes kb4 { 0%,8.036% { opacity:0; } 10.321%,100% { opacity:1; } }
+    @keyframes kb5 { 0%,8.571% { opacity:0; } 10.857%,100% { opacity:1; } }
+    @keyframes kb6 { 0%,9.107% { opacity:0; } 11.393%,100% { opacity:1; } }
+    @keyframes kb7 { 0%,9.643% { opacity:0; } 11.929%,100% { opacity:1; } }
+    @keyframes kb8 { 0%,10.179% { opacity:0; } 12.464%,100% { opacity:1; } }
+    @keyframes kb9 { 0%,10.714% { opacity:0; } 13%,100% { opacity:1; } }
+    @keyframes kb10 { 0%,11.25% { opacity:0; } 13.536%,100% { opacity:1; } }
+    @keyframes kb11 { 0%,11.786% { opacity:0; } 14.071%,100% { opacity:1; } }
+    @keyframes kb12 { 0%,12.321% { opacity:0; } 14.607%,100% { opacity:1; } }
+    @keyframes kb13 { 0%,12.857% { opacity:0; } 15.143%,100% { opacity:1; } }
+
+    /* tic lines turn amber at each pin */
+    @keyframes ka1 { 0%,19% { fill:#ffffff; } 21.143%,100% { fill:#FFB020; } }
+    @keyframes ka2 { 0%,25.786% { fill:#ffffff; } 27.929%,100% { fill:#FFB020; } }
+    @keyframes ka3 { 0%,32.571% { fill:#ffffff; } 34.714%,100% { fill:#FFB020; } }
+    @keyframes ka4 { 0%,39.357% { fill:#ffffff; } 41.5%,100% { fill:#FFB020; } }
+    @keyframes ka5 { 0%,46.143% { fill:#ffffff; } 48.286%,100% { fill:#FFB020; } }
+
+    /* rank rail grows stepwise; stubs fade with each tag */
+    @keyframes krail { 0%,23.929% { transform:scaleY(.001); } 24.643%,30.714% { transform:scaleY(.2); } 31.429%,37.5% { transform:scaleY(.5); } 38.214%,44.286% { transform:scaleY(.8); } 45%,100% { transform:scaleY(1); } }
+    @keyframes ks1 { 0%,17.143% { opacity:0; } 19%,100% { opacity:1; } }
+    @keyframes ks2 { 0%,23.929% { opacity:0; } 25.786%,100% { opacity:1; } }
+    @keyframes ks3 { 0%,30.714% { opacity:0; } 32.571%,100% { opacity:1; } }
+    @keyframes ks4 { 0%,37.5% { opacity:0; } 39.357%,100% { opacity:1; } }
+    @keyframes ks5 { 0%,44.286% { opacity:0; } 46.143%,100% { opacity:1; } }
+
+    /* tags slide in from the rail */
+    @keyframes kx1 { 0%,17.143% { transform:translateX(-26px); animation-timing-function:cubic-bezier(.33,1,.68,1); } 21.429%,100% { transform:translateX(0); } }
+    @keyframes kx2 { 0%,23.929% { transform:translateX(-26px); animation-timing-function:cubic-bezier(.33,1,.68,1); } 28.214%,100% { transform:translateX(0); } }
+    @keyframes kx3 { 0%,30.714% { transform:translateX(-26px); animation-timing-function:cubic-bezier(.33,1,.68,1); } 35%,100% { transform:translateX(0); } }
+    @keyframes kx4 { 0%,37.5% { transform:translateX(-26px); animation-timing-function:cubic-bezier(.33,1,.68,1); } 41.786%,100% { transform:translateX(0); } }
+    @keyframes kx5 { 0%,44.286% { transform:translateX(-26px); animation-timing-function:cubic-bezier(.33,1,.68,1); } 48.571%,100% { transform:translateX(0); } }
+
+    /* connector edges grow to the pinned line, end dots land */
+    @keyframes ke1 { 0%,19% { transform:scaleX(.001); animation-timing-function:cubic-bezier(.33,1,.68,1); } 21.143%,100% { transform:scaleX(1); } }
+    @keyframes ke2 { 0%,25.786% { transform:scaleX(.001); animation-timing-function:cubic-bezier(.33,1,.68,1); } 27.929%,100% { transform:scaleX(1); } }
+    @keyframes ke3 { 0%,32.571% { transform:scaleX(.001); animation-timing-function:cubic-bezier(.33,1,.68,1); } 34.714%,100% { transform:scaleX(1); } }
+    @keyframes ke4 { 0%,39.357% { transform:scaleX(.001); animation-timing-function:cubic-bezier(.33,1,.68,1); } 41.5%,100% { transform:scaleX(1); } }
+    @keyframes ke5 { 0%,46.143% { transform:scaleX(.001); animation-timing-function:cubic-bezier(.33,1,.68,1); } 48.286%,100% { transform:scaleX(1); } }
+    @keyframes kf1 { 0%,19% { opacity:0; } 19.714%,100% { opacity:1; } }
+    @keyframes kf2 { 0%,25.786% { opacity:0; } 26.5%,100% { opacity:1; } }
+    @keyframes kf3 { 0%,32.571% { opacity:0; } 33.286%,100% { opacity:1; } }
+    @keyframes kf4 { 0%,39.357% { opacity:0; } 40.071%,100% { opacity:1; } }
+    @keyframes kf5 { 0%,46.143% { opacity:0; } 46.857%,100% { opacity:1; } }
+    @keyframes kd1 { 0%,21% { opacity:0; } 21.857%,100% { opacity:.85; } }
+    @keyframes kd2 { 0%,27.786% { opacity:0; } 28.643%,100% { opacity:.85; } }
+    @keyframes kd3 { 0%,34.571% { opacity:0; } 35.429%,100% { opacity:.85; } }
+    @keyframes kd4 { 0%,41.357% { opacity:0; } 42.214%,100% { opacity:.85; } }
+    @keyframes kd5 { 0%,48.143% { opacity:0; } 49%,100% { opacity:.85; } }
+
+    /* brackets around pinned lines */
+    @keyframes kbr1 { 0%,19% { opacity:0; } 21.143%,100% { opacity:1; } }
+    @keyframes kbr2 { 0%,25.786% { opacity:0; } 27.929%,100% { opacity:1; } }
+    @keyframes kbr3 { 0%,32.571% { opacity:0; } 34.714%,100% { opacity:1; } }
+    @keyframes kbr4 { 0%,39.357% { opacity:0; } 41.5%,100% { opacity:1; } }
+    @keyframes kbr5 { 0%,46.143% { opacity:0; } 48.286%,100% { opacity:1; } }
+
+    /* end-state pulses travel down the ranks: two pulses per cycle, then restart */
+    @keyframes kA1 { 0%,50% { opacity:0; animation-timing-function:ease-in-out; } 58.571% { opacity:.4; animation-timing-function:ease-in-out; } 67.143% { opacity:0; animation-timing-function:ease-in-out; } 75.714% { opacity:.4; animation-timing-function:ease-in-out; } 84.286%,100% { opacity:0; } }
+    @keyframes kA2 { 0%,53.086% { opacity:0; animation-timing-function:ease-in-out; } 61.657% { opacity:.4; animation-timing-function:ease-in-out; } 70.229% { opacity:0; animation-timing-function:ease-in-out; } 78.8% { opacity:.4; animation-timing-function:ease-in-out; } 87.371%,100% { opacity:0; } }
+    @keyframes kA3 { 0%,56.171% { opacity:0; animation-timing-function:ease-in-out; } 64.743% { opacity:.4; animation-timing-function:ease-in-out; } 73.314% { opacity:0; animation-timing-function:ease-in-out; } 81.886% { opacity:.4; animation-timing-function:ease-in-out; } 90.457%,100% { opacity:0; } }
+    @keyframes kA4 { 0%,59.257% { opacity:0; animation-timing-function:ease-in-out; } 67.829% { opacity:.4; animation-timing-function:ease-in-out; } 76.4% { opacity:0; animation-timing-function:ease-in-out; } 84.971% { opacity:.4; animation-timing-function:ease-in-out; } 93.543%,100% { opacity:0; } }
+    @keyframes kA5 { 0%,62.343% { opacity:0; animation-timing-function:ease-in-out; } 70.914% { opacity:.4; animation-timing-function:ease-in-out; } 79.486% { opacity:0; animation-timing-function:ease-in-out; } 88.057% { opacity:.4; animation-timing-function:ease-in-out; } 96.629%,100% { opacity:0; } }
+    @keyframes kB1 { 0%,50% { opacity:0; animation-timing-function:ease-in-out; } 58.571% { opacity:1; animation-timing-function:ease-in-out; } 67.143% { opacity:0; animation-timing-function:ease-in-out; } 75.714% { opacity:1; animation-timing-function:ease-in-out; } 84.286%,100% { opacity:0; } }
+    @keyframes kB2 { 0%,53.086% { opacity:0; animation-timing-function:ease-in-out; } 61.657% { opacity:1; animation-timing-function:ease-in-out; } 70.229% { opacity:0; animation-timing-function:ease-in-out; } 78.8% { opacity:1; animation-timing-function:ease-in-out; } 87.371%,100% { opacity:0; } }
+    @keyframes kB3 { 0%,56.171% { opacity:0; animation-timing-function:ease-in-out; } 64.743% { opacity:1; animation-timing-function:ease-in-out; } 73.314% { opacity:0; animation-timing-function:ease-in-out; } 81.886% { opacity:1; animation-timing-function:ease-in-out; } 90.457%,100% { opacity:0; } }
+    @keyframes kB4 { 0%,59.257% { opacity:0; animation-timing-function:ease-in-out; } 67.829% { opacity:1; animation-timing-function:ease-in-out; } 76.4% { opacity:0; animation-timing-function:ease-in-out; } 84.971% { opacity:1; animation-timing-function:ease-in-out; } 93.543%,100% { opacity:0; } }
+    @keyframes kB5 { 0%,62.343% { opacity:0; animation-timing-function:ease-in-out; } 70.914% { opacity:1; animation-timing-function:ease-in-out; } 79.486% { opacity:0; animation-timing-function:ease-in-out; } 88.057% { opacity:1; animation-timing-function:ease-in-out; } 96.629%,100% { opacity:0; } }
+    @keyframes kC1 { 0%,50% { opacity:0; animation-timing-function:ease-in-out; } 58.571% { opacity:.5; animation-timing-function:ease-in-out; } 67.143% { opacity:0; animation-timing-function:ease-in-out; } 75.714% { opacity:.5; animation-timing-function:ease-in-out; } 84.286%,100% { opacity:0; } }
+    @keyframes kC2 { 0%,53.086% { opacity:0; animation-timing-function:ease-in-out; } 61.657% { opacity:.5; animation-timing-function:ease-in-out; } 70.229% { opacity:0; animation-timing-function:ease-in-out; } 78.8% { opacity:.5; animation-timing-function:ease-in-out; } 87.371%,100% { opacity:0; } }
+    @keyframes kC3 { 0%,56.171% { opacity:0; animation-timing-function:ease-in-out; } 64.743% { opacity:.5; animation-timing-function:ease-in-out; } 73.314% { opacity:0; animation-timing-function:ease-in-out; } 81.886% { opacity:.5; animation-timing-function:ease-in-out; } 90.457%,100% { opacity:0; } }
+    @keyframes kC4 { 0%,59.257% { opacity:0; animation-timing-function:ease-in-out; } 67.829% { opacity:.5; animation-timing-function:ease-in-out; } 76.4% { opacity:0; animation-timing-function:ease-in-out; } 84.971% { opacity:.5; animation-timing-function:ease-in-out; } 93.543%,100% { opacity:0; } }
+    @keyframes kC5 { 0%,62.343% { opacity:0; animation-timing-function:ease-in-out; } 70.914% { opacity:.5; animation-timing-function:ease-in-out; } 79.486% { opacity:0; animation-timing-function:ease-in-out; } 88.057% { opacity:.5; animation-timing-function:ease-in-out; } 96.629%,100% { opacity:0; } }
+    @keyframes kD1 { 0%,50% { opacity:0; animation-timing-function:ease-in-out; } 58.571% { opacity:.15; animation-timing-function:ease-in-out; } 67.143% { opacity:0; animation-timing-function:ease-in-out; } 75.714% { opacity:.15; animation-timing-function:ease-in-out; } 84.286%,100% { opacity:0; } }
+    @keyframes kD2 { 0%,53.086% { opacity:0; animation-timing-function:ease-in-out; } 61.657% { opacity:.15; animation-timing-function:ease-in-out; } 70.229% { opacity:0; animation-timing-function:ease-in-out; } 78.8% { opacity:.15; animation-timing-function:ease-in-out; } 87.371%,100% { opacity:0; } }
+    @keyframes kD3 { 0%,56.171% { opacity:0; animation-timing-function:ease-in-out; } 64.743% { opacity:.15; animation-timing-function:ease-in-out; } 73.314% { opacity:0; animation-timing-function:ease-in-out; } 81.886% { opacity:.15; animation-timing-function:ease-in-out; } 90.457%,100% { opacity:0; } }
+    @keyframes kD4 { 0%,59.257% { opacity:0; animation-timing-function:ease-in-out; } 67.829% { opacity:.15; animation-timing-function:ease-in-out; } 76.4% { opacity:0; animation-timing-function:ease-in-out; } 84.971% { opacity:.15; animation-timing-function:ease-in-out; } 93.543%,100% { opacity:0; } }
+    @keyframes kD5 { 0%,62.343% { opacity:0; animation-timing-function:ease-in-out; } 70.914% { opacity:.15; animation-timing-function:ease-in-out; } 79.486% { opacity:0; animation-timing-function:ease-in-out; } 88.057% { opacity:.15; animation-timing-function:ease-in-out; } 96.629%,100% { opacity:0; } }
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- ================= Response card ================= -->
+  <g style="animation:kcard 14s linear infinite">
+    <rect x="640" y="70" width="640" height="940" rx="20" fill="rgba(8,12,18,0.80)" stroke="#00F3FF" stroke-width="5"/>
+    <line x1="680" y1="185" x2="1240" y2="185" stroke="rgba(0,243,255,0.7)" stroke-width="3"/>
+    <!-- Claude logo: vector orange asterisk -->
+    <g stroke="#E5683C" stroke-width="4.5" stroke-linecap="round" class="sh">
+      <line x1="860" y1="135" x2="860" y2="118"/>
+      <line x1="862.9" y1="135.9" x2="872.2" y2="121.6"/>
+      <line x1="864.7" y1="138.4" x2="880.6" y2="132.4"/>
+      <line x1="864.9" y1="141.4" x2="881.8" y2="144.4"/>
+      <line x1="863.4" y1="144.1" x2="876.4" y2="155.2"/>
+      <line x1="860.8" y1="145.4" x2="863.8" y2="162.3"/>
+      <line x1="857.8" y1="145.1" x2="852" y2="161.2"/>
+      <line x1="855.4" y1="143.2" x2="842.3" y2="154.2"/>
+      <line x1="854.2" y1="140.5" x2="837.2" y2="139.5"/>
+      <line x1="854.7" y1="137.6" x2="839.9" y2="129.2"/>
+      <line x1="857.1" y1="135.5" x2="848.3" y2="120.9"/>
+      <circle cx="860" cy="140" r="3.5" fill="#E5683C" stroke="none"/>
+    </g>
+    <text x="984" y="140" class="f sh2" font-size="40" letter-spacing="5" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">OPUS 5</text>
+  </g>
+
+  <!-- ================= Body rows ================= -->
+  <text x="680" y="250" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb1 14s linear infinite,ka1 14s linear infinite">It's not X, it's Y.</text>
+  <rect x="680" y="300" width="520" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb2 14s linear infinite"/>
+  <text x="680" y="366" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb3 14s linear infinite,ka2 14s linear infinite">fast — clean — done</text>
+  <rect x="680" y="416" width="470" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb4 14s linear infinite"/>
+  <rect x="680" y="474" width="540" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb5 14s linear infinite"/>
+  <text x="680" y="540" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb6 14s linear infinite,ka3 14s linear infinite">the load-bearing bit</text>
+  <rect x="680" y="590" width="500" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb7 14s linear infinite"/>
+  <rect x="680" y="648" width="430" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb8 14s linear infinite"/>
+  <text x="680" y="714" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb9 14s linear infinite,ka4 14s linear infinite">You're absolutely right!</text>
+  <rect x="680" y="764" width="520" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb10 14s linear infinite"/>
+  <text x="680" y="830" class="f sh" font-size="38" font-weight="700" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb11 14s linear infinite,ka5 14s linear infinite">## KEY TAKEAWAYS</text>
+  <text x="680" y="888" class="f sh" font-size="35" font-weight="700" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb12 14s linear infinite">**Bold** every line</text>
+  <rect x="680" y="938" width="480" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb13 14s linear infinite"/>
+
+  <!-- ================= Rank rail ================= -->
+  <line x1="26" y1="250" x2="26" y2="830" stroke="rgba(255,176,32,0.5)" stroke-width="5" stroke-linecap="round"
+        style="transform-box:fill-box;transform-origin:center top;animation:krail 14s linear infinite,ks1 14s linear infinite"/>
+  <!-- Stubs from rail to each tag -->
+  <line x1="26" y1="250" x2="60" y2="250" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks1 14s linear infinite"/>
+  <line x1="26" y1="366" x2="60" y2="366" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks2 14s linear infinite"/>
+  <line x1="26" y1="540" x2="60" y2="540" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks3 14s linear infinite"/>
+  <line x1="26" y1="714" x2="60" y2="714" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks4 14s linear infinite"/>
+  <line x1="26" y1="830" x2="60" y2="830" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks5 14s linear infinite"/>
+
+  <!-- ================= Edges from tags to their lines ================= -->
+  <rect x="610" y="248" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke1 14s linear infinite,kf1 14s linear infinite"/>
+  <rect x="610" y="364" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke2 14s linear infinite,kf2 14s linear infinite"/>
+  <rect x="610" y="538" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke3 14s linear infinite,kf3 14s linear infinite"/>
+  <rect x="610" y="712" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke4 14s linear infinite,kf4 14s linear infinite"/>
+  <rect x="610" y="828" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke5 14s linear infinite,kf5 14s linear infinite"/>
+  <!-- Edge dots -->
+  <circle cx="640" cy="250" r="7" fill="#FFB020" style="animation:kd1 14s linear infinite"/>
+  <circle cx="640" cy="366" r="7" fill="#FFB020" style="animation:kd2 14s linear infinite"/>
+  <circle cx="640" cy="540" r="7" fill="#FFB020" style="animation:kd3 14s linear infinite"/>
+  <circle cx="640" cy="714" r="7" fill="#FFB020" style="animation:kd4 14s linear infinite"/>
+  <circle cx="640" cy="830" r="7" fill="#FFB020" style="animation:kd5 14s linear infinite"/>
+
+  <!-- ================= Brackets around pinned lines ================= -->
+  <g fill="none" stroke="rgba(255,176,32,0.65)" stroke-width="4">
+    <g style="animation:kbr1 14s linear infinite">
+      <path d="M 678 227 L 662 227 L 662 273 L 678 273"/>
+      <path d="M 1242 227 L 1258 227 L 1258 273 L 1242 273"/>
+    </g>
+    <g style="animation:kbr2 14s linear infinite">
+      <path d="M 678 343 L 662 343 L 662 389 L 678 389"/>
+      <path d="M 1242 343 L 1258 343 L 1258 389 L 1242 389"/>
+    </g>
+    <g style="animation:kbr3 14s linear infinite">
+      <path d="M 678 517 L 662 517 L 662 563 L 678 563"/>
+      <path d="M 1242 517 L 1258 517 L 1258 563 L 1242 563"/>
+    </g>
+    <g style="animation:kbr4 14s linear infinite">
+      <path d="M 678 691 L 662 691 L 662 737 L 678 737"/>
+      <path d="M 1242 691 L 1258 691 L 1258 737 L 1242 737"/>
+    </g>
+    <g style="animation:kbr5 14s linear infinite">
+      <path d="M 678 807 L 662 807 L 662 853 L 678 853"/>
+      <path d="M 1242 807 L 1258 807 L 1258 853 L 1242 853"/>
+    </g>
+  </g>
+
+  <!-- ================= Tic tags ================= -->
+  <!-- Tag 1: rows 0 (two-line) -->
+  <g style="animation:ks1 14s linear infinite,kx1 14s linear infinite">
+    <rect x="60" y="188" width="550" height="124" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
+    <circle cx="106" cy="250" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
+    <text x="106" y="250" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">1</text>
+    <text x="148" y="226" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">NEGATIVE PARALLELISM</text>
+    <text x="148" y="274" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">(ITS NOT X, ITS Y)</text>
+  </g>
+  <!-- Tag 2 -->
+  <g style="animation:ks2 14s linear infinite,kx2 14s linear infinite">
+    <rect x="60" y="324" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
+    <circle cx="106" cy="366" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
+    <text x="106" y="366" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">2</text>
+    <text x="148" y="366" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">EM DASH CHAINING</text>
+  </g>
+  <!-- Tag 3 -->
+  <g style="animation:ks3 14s linear infinite,kx3 14s linear infinite">
+    <rect x="60" y="498" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
+    <circle cx="106" cy="540" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
+    <text x="106" y="540" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">3</text>
+    <text x="148" y="540" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">LOAD-BEARING</text>
+  </g>
+  <!-- Tag 4 -->
+  <g style="animation:ks4 14s linear infinite,kx4 14s linear infinite">
+    <rect x="60" y="672" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
+    <circle cx="106" cy="714" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
+    <text x="106" y="714" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">4</text>
+    <text x="148" y="714" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">YOURE ABSOLUTELY RIGHT</text>
+  </g>
+  <!-- Tag 5: two-line -->
+  <g style="animation:ks5 14s linear infinite,kx5 14s linear infinite">
+    <rect x="60" y="768" width="550" height="124" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
+    <circle cx="106" cy="830" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
+    <text x="106" y="830" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">5</text>
+    <text x="148" y="806" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">HEADING AND BOLD</text>
+    <text x="148" y="854" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">THEATER</text>
+  </g>
+
+  <!-- ================= Infinite end-state pulse (travels down the ranks) ================= -->
+  <!-- Tag halos -->
+  <rect x="54" y="182" width="562" height="136" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA1 14s linear infinite"/>
+  <rect x="54" y="318" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA2 14s linear infinite"/>
+  <rect x="54" y="492" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA3 14s linear infinite"/>
+  <rect x="54" y="666" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA4 14s linear infinite"/>
+  <rect x="54" y="762" width="562" height="136" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA5 14s linear infinite"/>
+  <!-- Rank badge glow overlays -->
+  <circle cx="106" cy="250" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB1 14s linear infinite"/>
+  <circle cx="106" cy="366" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB2 14s linear infinite"/>
+  <circle cx="106" cy="540" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB3 14s linear infinite"/>
+  <circle cx="106" cy="714" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB4 14s linear infinite"/>
+  <circle cx="106" cy="830" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB5 14s linear infinite"/>
+  <!-- Bracket bright overlays -->
+  <g fill="none" stroke="rgba(255,176,32,0.9)" stroke-width="4">
+    <g style="animation:kC1 14s linear infinite">
+      <path d="M 678 227 L 662 227 L 662 273 L 678 273"/>
+      <path d="M 1242 227 L 1258 227 L 1258 273 L 1242 273"/>
+    </g>
+    <g style="animation:kC2 14s linear infinite">
+      <path d="M 678 343 L 662 343 L 662 389 L 678 389"/>
+      <path d="M 1242 343 L 1258 343 L 1258 389 L 1242 389"/>
+    </g>
+    <g style="animation:kC3 14s linear infinite">
+      <path d="M 678 517 L 662 517 L 662 563 L 678 563"/>
+      <path d="M 1242 517 L 1258 517 L 1258 563 L 1242 563"/>
+    </g>
+    <g style="animation:kC4 14s linear infinite">
+      <path d="M 678 691 L 662 691 L 662 737 L 678 737"/>
+      <path d="M 1242 691 L 1258 691 L 1258 737 L 1242 737"/>
+    </g>
+    <g style="animation:kC5 14s linear infinite">
+      <path d="M 678 807 L 662 807 L 662 853 L 678 853"/>
+      <path d="M 1242 807 L 1258 807 L 1258 853 L 1242 853"/>
+    </g>
+  </g>
+  <!-- Edge dot breathe overlays -->
+  <circle cx="640" cy="250" r="7" fill="#FFB020" style="animation:kD1 14s linear infinite"/>
+  <circle cx="640" cy="366" r="7" fill="#FFB020" style="animation:kD2 14s linear infinite"/>
+  <circle cx="640" cy="540" r="7" fill="#FFB020" style="animation:kD3 14s linear infinite"/>
+  <circle cx="640" cy="714" r="7" fill="#FFB020" style="animation:kD4 14s linear infinite"/>
+  <circle cx="640" cy="830" r="7" fill="#FFB020" style="animation:kD5 14s linear infinite"/>
+</svg>

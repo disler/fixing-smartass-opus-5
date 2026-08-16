@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .sans{font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif}
+    .mono{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+    .sh{filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8))}
+
+    /* Looping build: every animation is one 12s cycle, delays baked into keyframe offsets */
+
+    /* Columns: fade in staggered (200/380/560ms), all clear 7800-8600ms */
+    @keyframes kcol0{0%,1.667%{opacity:0}5.833%{opacity:1}65%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}71.667%,100%{opacity:0}}
+    @keyframes kcol1{0%,3.167%{opacity:0}7.333%{opacity:1}65%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}71.667%,100%{opacity:0}}
+    @keyframes kcol2{0%,4.667%{opacity:0}8.833%{opacity:1}65%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}71.667%,100%{opacity:0}}
+    .col0{animation:kcol0 12s linear infinite}
+    .col1{animation:kcol1 12s linear infinite}
+    .col2{animation:kcol2 12s linear infinite}
+
+    /* Chips: fade in with column, survive, one breathe pulse in the hold */
+    @keyframes kchip0{0%,1.667%{opacity:0}5.833%{opacity:1}75%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}85%{opacity:.85;animation-timing-function:cubic-bezier(.65,0,.35,1)}95%,100%{opacity:1}}
+    @keyframes kchip1{0%,3.167%{opacity:0}7.333%{opacity:1}77.5%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}87.5%{opacity:.85;animation-timing-function:cubic-bezier(.65,0,.35,1)}97.5%,100%{opacity:1}}
+    @keyframes kchip2{0%,4.667%{opacity:0}8.833%{opacity:1}80%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}90%{opacity:.85;animation-timing-function:cubic-bezier(.65,0,.35,1)}100%{opacity:1}}
+    .chip0{animation:kchip0 12s linear infinite}
+    .chip1{animation:kchip1 12s linear infinite}
+    .chip2{animation:kchip2 12s linear infinite}
+
+    /* Chip fills + code darkening at each hit (2500/4400/6300ms) */
+    @keyframes kchipR0{0%,20.833%{fill:rgba(0,255,16,0);stroke:rgba(255,255,255,.42)}25%,100%{fill:#00FF10;stroke:#00FF10}}
+    @keyframes kchipR1{0%,36.667%{fill:rgba(255,176,32,0);stroke:rgba(255,255,255,.42)}40.833%,100%{fill:#FFB020;stroke:#FFB020}}
+    @keyframes kchipR2{0%,52.5%{fill:rgba(0,243,255,0);stroke:rgba(255,255,255,.42)}56.667%,100%{fill:#00F3FF;stroke:#00F3FF}}
+    @keyframes kcode0{0%,20.833%{fill:#FFFFFF}25%,100%{fill:#08121A}}
+    @keyframes kcode1{0%,36.667%{fill:#FFFFFF}40.833%,100%{fill:#08121A}}
+    @keyframes kcode2{0%,52.5%{fill:#FFFFFF}56.667%,100%{fill:#08121A}}
+    .chipR0{animation:kchipR0 12s linear infinite}
+    .chipR1{animation:kchipR1 12s linear infinite}
+    .chipR2{animation:kchipR2 12s linear infinite}
+    .code0{animation:kcode0 12s linear infinite}
+    .code1{animation:kcode1 12s linear infinite}
+    .code2{animation:kcode2 12s linear infinite}
+
+    /* Action icons: ring then glyph draw on at the hit */
+    @keyframes kring0{0%{stroke-dashoffset:1}20.833%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}23.125%,100%{stroke-dashoffset:0}}
+    @keyframes kring1{0%{stroke-dashoffset:1}36.667%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}38.958%,100%{stroke-dashoffset:0}}
+    @keyframes kring2{0%{stroke-dashoffset:1}52.5%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}54.792%,100%{stroke-dashoffset:0}}
+    @keyframes kgl0{0%{stroke-dashoffset:1}22.292%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}25%,100%{stroke-dashoffset:0}}
+    @keyframes kgl1{0%{stroke-dashoffset:1}37.292%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}40%,100%{stroke-dashoffset:0}}
+    @keyframes kgl2{0%{stroke-dashoffset:1}53.125%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}55.833%,100%{stroke-dashoffset:0}}
+    .ring0{animation:kring0 12s linear infinite}
+    .ring1{animation:kring1 12s linear infinite}
+    .ring2{animation:kring2 12s linear infinite}
+    .gl0{animation:kgl0 12s linear infinite}
+    .gl1{animation:kgl1 12s linear infinite}
+    .gl2{animation:kgl2 12s linear infinite}
+
+    /* Connectors reach up from the card, then vanish as it travels */
+    @keyframes kconnD0{0%{stroke-dashoffset:1}15.833%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}18.333%,100%{stroke-dashoffset:0}}
+    @keyframes kconnD1{0%{stroke-dashoffset:1}31.667%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}34.167%,100%{stroke-dashoffset:0}}
+    @keyframes kconnD2{0%{stroke-dashoffset:1}47.5%{stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}50%,100%{stroke-dashoffset:0}}
+    @keyframes kconnF0{0%,25%{opacity:.95}26.333%,100%{opacity:0}}
+    @keyframes kconnF1{0%,40.833%{opacity:.95}42.167%,100%{opacity:0}}
+    @keyframes kconnF2{0%,58.333%{opacity:.95}60%,100%{opacity:0}}
+    .conn0{animation:kconnD0 12s linear infinite,kconnF0 12s linear infinite}
+    .conn1{animation:kconnD1 12s linear infinite,kconnF1 12s linear infinite}
+    .conn2{animation:kconnD2 12s linear infinite,kconnF2 12s linear infinite}
+
+    /* Command card: rise (1000ms), park, hop right twice (3000-5500ms), sink away (7000-7600ms) */
+    @keyframes kcardX{0%,25%{transform:translateX(0)}25%{animation-timing-function:cubic-bezier(.65,0,.35,1)}30%{transform:translateX(520px)}40.833%{transform:translateX(520px);animation-timing-function:cubic-bezier(.65,0,.35,1)}45.833%,100%{transform:translateX(1040px)}}
+    @keyframes kcardY{0%{transform:translateY(150px)}8.333%{transform:translateY(150px);animation-timing-function:cubic-bezier(.65,0,.35,1)}13.333%{transform:translateY(0)}58.333%{transform:translateY(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}63.333%,100%{transform:translateY(150px)}}
+    @keyframes kcardF{0%,8.333%{opacity:0}10.833%{opacity:1}58.333%{opacity:1}61.833%,100%{opacity:0}}
+    .cardX{animation:kcardX 12s linear infinite}
+    .cardY{animation:kcardY 12s linear infinite,kcardF 12s linear infinite}
+
+    /* Command text swap: old line gone before the new one arrives */
+    @keyframes kcmd1{0%,25%{opacity:1}26.5%,100%{opacity:0}}
+    @keyframes kcmd2{0%,27%{opacity:0}28.5%{opacity:1}40.833%{opacity:1}42.333%,100%{opacity:0}}
+    @keyframes kcmd3{0%,42.833%{opacity:0}44.333%,100%{opacity:1}}
+    .cmd1{animation:kcmd1 12s linear infinite}
+    .cmd2{animation:kcmd2 12s linear infinite}
+    .cmd3{animation:kcmd3 12s linear infinite}
+
+    /* Held tail: icon rings and chips pulse softly, then the cycle restarts */
+    @keyframes khalo0{0%,75%{opacity:0}75%{animation-timing-function:cubic-bezier(.65,0,.35,1)}85%{opacity:.35;animation-timing-function:cubic-bezier(.65,0,.35,1)}95%,100%{opacity:0}}
+    @keyframes khalo1{0%,77.5%{opacity:0}77.5%{animation-timing-function:cubic-bezier(.65,0,.35,1)}87.5%{opacity:.35;animation-timing-function:cubic-bezier(.65,0,.35,1)}97.5%,100%{opacity:0}}
+    @keyframes khalo2{0%,80%{opacity:0}80%{animation-timing-function:cubic-bezier(.65,0,.35,1)}90%{opacity:.35;animation-timing-function:cubic-bezier(.65,0,.35,1)}100%{opacity:0}}
+    .halo0{animation:khalo0 12s linear infinite}
+    .halo1{animation:khalo1 12s linear infinite}
+    .halo2{animation:khalo2 12s linear infinite}
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- ================= Content columns (clear at the end) ================= -->
+  <g class="col0">
+    <rect x="200" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="440" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Ship v2 schema</text>
+    <rect x="270" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="320" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+  </g>
+  <g class="col1">
+    <rect x="720" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="960" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Cache in Redis</text>
+    <rect x="790" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="840" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+  </g>
+  <g class="col2">
+    <rect x="1240" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="1480" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Owns migrations?</text>
+    <rect x="1310" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="1360" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+  </g>
+
+  <!-- ================= Connectors from the card up to each chip ================= -->
+  <line class="conn0" x1="440" y1="800" x2="440" y2="642" stroke="#00FF10" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <line class="conn1" x1="960" y1="800" x2="960" y2="642" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <line class="conn2" x1="1480" y1="800" x2="1480" y2="642" stroke="#00F3FF" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+
+  <!-- ================= Action icons (survive) ================= -->
+  <g>
+    <circle class="ring0" cx="440" cy="470" r="42" fill="none" stroke="#00FF10" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 440 470)"/>
+    <path class="gl0" d="M 421.1 470.84 L 434.96 485.96 L 461 453.2" fill="none" stroke="#00FF10" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  </g>
+  <g>
+    <circle class="ring1" cx="960" cy="470" r="42" fill="none" stroke="#FFB020" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 960 470)"/>
+    <path class="gl1" d="M 944.88 454.88 L 975.12 485.12 M 975.12 454.88 L 944.88 485.12" fill="none" stroke="#FFB020" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  </g>
+  <g>
+    <circle class="ring2" cx="1480" cy="470" r="42" fill="none" stroke="#00F3FF" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 1480 470)"/>
+    <path class="gl2" d="M 1463.2 452.36 L 1463.2 475.04 Q 1463.2 484.28 1472.44 484.28 L 1498.48 484.28 M 1487.56 473.36 L 1499.32 484.28 L 1487.56 495.2" fill="none" stroke="#00F3FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  </g>
+
+  <!-- ================= Code chips (survive) ================= -->
+  <g class="chip0">
+    <rect class="chipR0" x="370" y="578" width="140" height="64" rx="10" fill="rgba(0,255,16,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
+    <text class="mono code0" x="440" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">D1</text>
+  </g>
+  <g class="chip1">
+    <rect class="chipR1" x="890" y="578" width="140" height="64" rx="10" fill="rgba(255,176,32,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
+    <text class="mono code1" x="960" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">O1</text>
+  </g>
+  <g class="chip2">
+    <rect class="chipR2" x="1410" y="578" width="140" height="64" rx="10" fill="rgba(0,243,255,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
+    <text class="mono code2" x="1480" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Q1</text>
+  </g>
+
+  <!-- ================= Held-tail halos ================= -->
+  <g class="halo0" opacity="0">
+    <circle cx="440" cy="470" r="50" fill="none" stroke="#00FF10" stroke-width="3"/>
+    <rect x="362" y="570" width="156" height="80" rx="14" fill="none" stroke="#00FF10" stroke-width="3"/>
+  </g>
+  <g class="halo1" opacity="0">
+    <circle cx="960" cy="470" r="50" fill="none" stroke="#FFB020" stroke-width="3"/>
+    <rect x="882" y="570" width="156" height="80" rx="14" fill="none" stroke="#FFB020" stroke-width="3"/>
+  </g>
+  <g class="halo2" opacity="0">
+    <circle cx="1480" cy="470" r="50" fill="none" stroke="#00F3FF" stroke-width="3"/>
+    <rect x="1402" y="570" width="156" height="80" rx="14" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  </g>
+
+  <!-- ================= The command card ================= -->
+  <g class="cardX">
+    <g class="cardY">
+      <rect x="270" y="800" width="340" height="100" rx="16" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+      <text class="mono sh" x="310" y="850" font-size="44" font-weight="700" fill="#FFFFFF" fill-opacity="0.75" text-anchor="middle" dominant-baseline="central">&#8250;</text>
+      <text class="mono sh cmd1" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" dominant-baseline="central">keep D1</text>
+      <text class="mono sh cmd2" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" opacity="0" dominant-baseline="central">reject O1</text>
+      <text class="mono sh cmd3" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" opacity="0" dominant-baseline="central">answer Q1</text>
+    </g>
+  </g>
+</svg>

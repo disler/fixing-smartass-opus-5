@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" font-family="'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif">
+  <style>
+    /* ---- looping build: one 12s cycle, every delay baked into keyframe offsets ---- */
+
+    /* singletons */
+    @keyframes ktitle { 0%, 1.667% { opacity: 0; transform: translateY(-23px); } 7.5%, 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes krail { 0%, 7.5% { clip-path: inset(0 0 100% 0); } 15%, 100% { clip-path: inset(0 0 0 0); } }
+    @keyframes ksys { 0%, 12.917% { opacity: 0; transform: translateY(16px); } 17.917%, 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes kcontract { 0%, 17.5% { opacity: 0; transform: translateY(16px); } 22.5%, 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes kbracket { 0%, 43.75% { transform: scaleX(0); } 47.917%, 100% { transform: scaleX(1); } }
+    @keyframes ktick { 0%, 47.833% { opacity: 0; } 48.5%, 100% { opacity: 1; } }
+    @keyframes kworkorder { 0%, 45.417% { opacity: 0; transform: translateY(20px); } 50%, 100% { opacity: 1; transform: translateY(0); } }
+    .title { animation: ktitle 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .rail-wipe { animation: krail 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .sys-label { animation: ksys 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .contract-label { animation: kcontract 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .bracket { transform-box: fill-box; transform-origin: center center; animation: kbracket 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .tick { animation: ktick 12s linear infinite; }
+    .workorder { animation: kworkorder 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+
+    /* per-turn instances: class carries everything but the name, inline style picks the keyframes */
+    .branch { stroke-dasharray: 250; animation: 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .arrow { animation: 12s linear infinite; }
+    .carrier { animation: 12s linear infinite; }
+    .card { animation: 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+    .content-line { transform-box: fill-box; transform-origin: left center; animation: 12s cubic-bezier(0.33,1,0.68,1) infinite; }
+
+    @keyframes kbr1 { 0%, 22.5% { stroke-dashoffset: 250; } 25%, 100% { stroke-dashoffset: 0; } }
+    @keyframes kbr2 { 0%, 30.417% { stroke-dashoffset: 250; } 32.917%, 100% { stroke-dashoffset: 0; } }
+    @keyframes kbr3 { 0%, 38.333% { stroke-dashoffset: 250; } 40.833%, 100% { stroke-dashoffset: 0; } }
+    @keyframes kar1 { 0%, 24.917% { opacity: 0; } 25.583%, 100% { opacity: 1; } }
+    @keyframes kar2 { 0%, 32.833% { opacity: 0; } 33.5%, 100% { opacity: 1; } }
+    @keyframes kar3 { 0%, 40.75% { opacity: 0; } 41.417%, 100% { opacity: 1; } }
+    @keyframes kca1 { 0%, 23.75% { opacity: 0; transform: translateX(0); } 24.03% { opacity: 1; } 26.97% { opacity: 1; } 27.25%, 100% { opacity: 0; transform: translateX(250px); } }
+    @keyframes kca2 { 0%, 31.667% { opacity: 0; transform: translateX(0); } 31.947% { opacity: 1; } 34.887% { opacity: 1; } 35.167%, 100% { opacity: 0; transform: translateX(250px); } }
+    @keyframes kca3 { 0%, 39.583% { opacity: 0; transform: translateX(0); } 39.863% { opacity: 1; } 42.803% { opacity: 1; } 43.083%, 100% { opacity: 0; transform: translateX(250px); } }
+    @keyframes kcd1 { 0%, 24.833% { opacity: 0; transform: translateX(46px); } 29.167%, 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes kcd2 { 0%, 32.75% { opacity: 0; transform: translateX(46px); } 37.083%, 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes kcd3 { 0%, 40.667% { opacity: 0; transform: translateX(46px); } 45%, 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes kln1 { 0%, 26% { transform: scaleX(0); } 28.667%, 100% { transform: scaleX(1); } }
+    @keyframes kln2 { 0%, 27.083% { transform: scaleX(0); } 29.75%, 100% { transform: scaleX(1); } }
+    @keyframes kln3 { 0%, 33.917% { transform: scaleX(0); } 36.583%, 100% { transform: scaleX(1); } }
+    @keyframes kln4 { 0%, 35% { transform: scaleX(0); } 37.667%, 100% { transform: scaleX(1); } }
+    @keyframes kln5 { 0%, 41.833% { transform: scaleX(0); } 44.5%, 100% { transform: scaleX(1); } }
+    @keyframes kln6 { 0%, 42.917% { transform: scaleX(0); } 45.583%, 100% { transform: scaleX(1); } }
+
+    /* ---- held tail: two breathing pulses, then the cycle restarts ---- */
+    @keyframes kedge { 0%, 47.5% { opacity: 1; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 57.5% { opacity: 0.55; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 67.5% { opacity: 1; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 77.5% { opacity: 0.55; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 87.5%, 100% { opacity: 1; } }
+    @keyframes khalo { 0%, 47.5% { opacity: 0; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 57.5% { opacity: 0.4; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 67.5% { opacity: 0; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 77.5% { opacity: 0.4; animation-timing-function: cubic-bezier(0.65,0,0.35,1); } 87.5%, 100% { opacity: 0; } }
+    .rail-edge { animation: kedge 12s linear infinite; }
+    .rail-halo { opacity: 0; animation: khalo 12s linear infinite; }
+
+    .shadow { filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8)); }
+    .title-shadow { filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.9)); }
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- ================= Title ================= -->
+  <text class="title title-shadow" x="960" y="88" text-anchor="middle" dominant-baseline="central" font-size="60" letter-spacing="8" fill="#FFFFFF">TWO PROMPT INPUTS</text>
+
+  <!-- ================= Rail halo (held tail only) ================= -->
+  <rect class="rail-halo" x="139" y="225" width="282" height="640" rx="27" fill="none" stroke="#00F3FF" stroke-width="3"/>
+
+  <!-- ================= SYSTEM PROMPT rail (wipes in top to bottom) ================= -->
+  <g class="rail-wipe">
+    <!-- steady tinted fill -->
+    <rect x="150" y="236" width="260" height="618" rx="16" fill="rgba(0,243,255,0.12)"/>
+    <!-- dedicated edge: full cyan stroke, breathes during the held tail -->
+    <rect class="rail-edge" x="150" y="236" width="260" height="618" rx="16" fill="none" stroke="#00F3FF" stroke-width="5"/>
+    <!-- port notches on the right edge, one per turn -->
+    <rect x="405.5" y="301" width="9" height="38" fill="#00F3FF"/>
+    <rect x="405.5" y="526" width="9" height="38" fill="#00F3FF"/>
+    <rect x="405.5" y="751" width="9" height="38" fill="#00F3FF"/>
+  </g>
+
+  <!-- rail labels -->
+  <g class="sys-label">
+    <text class="shadow" x="280" y="440" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#00F3FF">SYSTEM</text>
+    <text class="shadow" x="280" y="492" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#00F3FF">PROMPT</text>
+  </g>
+  <g class="contract-label">
+    <line x1="190" y1="550" x2="370" y2="550" stroke="rgba(0,243,255,0.55)" stroke-width="2"/>
+    <text class="shadow" x="280" y="605" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(255,255,255,0.62)">OPERATING</text>
+    <text class="shadow" x="280" y="651" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(255,255,255,0.62)">CONTRACT</text>
+  </g>
+
+  <!-- ================= Turn 1 (starts 2700ms) ================= -->
+  <line class="branch" x1="410" y1="320" x2="660" y2="320" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr1"/>
+  <path class="arrow" d="M 645 307 L 658 320 L 645 333" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar1"/>
+  <circle class="carrier" cx="410" cy="320" r="9" fill="#00F3FF" style="animation-name:kca1"/>
+  <g class="card" style="animation-name:kcd1">
+    <rect x="660" y="236" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
+    <text class="shadow" x="860" y="282" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
+    <text class="shadow" x="1670" y="282" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 1</text>
+    <rect class="content-line" x="690" y="334" width="742" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln1"/>
+    <rect class="content-line" x="690" y="370" width="486" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln2"/>
+  </g>
+
+  <!-- ================= Turn 2 (starts 3650ms) ================= -->
+  <line class="branch" x1="410" y1="545" x2="660" y2="545" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr2"/>
+  <path class="arrow" d="M 645 532 L 658 545 L 645 558" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar2"/>
+  <circle class="carrier" cx="410" cy="545" r="9" fill="#00F3FF" style="animation-name:kca2"/>
+  <g class="card" style="animation-name:kcd2">
+    <rect x="660" y="461" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
+    <text class="shadow" x="860" y="507" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
+    <text class="shadow" x="1670" y="507" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 2</text>
+    <rect class="content-line" x="690" y="559" width="690" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln3"/>
+    <rect class="content-line" x="690" y="595" width="542" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln4"/>
+  </g>
+
+  <!-- ================= Turn 3 (starts 4600ms) ================= -->
+  <line class="branch" x1="410" y1="770" x2="660" y2="770" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr3"/>
+  <path class="arrow" d="M 645 757 L 658 770 L 645 783" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar3"/>
+  <circle class="carrier" cx="410" cy="770" r="9" fill="#00F3FF" style="animation-name:kca3"/>
+  <g class="card" style="animation-name:kcd3">
+    <rect x="660" y="686" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
+    <text class="shadow" x="860" y="732" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
+    <text class="shadow" x="1670" y="732" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 3</text>
+    <rect class="content-line" x="690" y="784" width="768" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln5"/>
+    <rect class="content-line" x="690" y="820" width="452" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln6"/>
+  </g>
+
+  <!-- ================= Bracket gathering the stack ================= -->
+  <line class="bracket" x1="660" y1="900" x2="1790" y2="900" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
+  <line class="tick" x1="660" y1="900" x2="660" y2="882" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
+  <line class="tick" x1="1790" y1="900" x2="1790" y2="882" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
+  <text class="workorder title-shadow" x="1225" y="962" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="6" fill="#00FF10">WORK ORDER</text>
+</svg>

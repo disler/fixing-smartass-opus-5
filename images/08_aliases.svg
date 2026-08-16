@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .f{font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif}
+    .m{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+    .sh{filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8))}
+    @keyframes chipPulse{0%,100%{opacity:0}50%{opacity:.4}}
+    .cGlow{animation:chipPulse 3s ease-in-out infinite}
+    .g2{animation-delay:.375s}.g3{animation-delay:.75s}.g4{animation-delay:1.125s}
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- row 1: scr -->
+  <rect class="cGlow" x="139" y="194" width="262" height="132" rx="22" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  <rect x="150" y="205" width="240" height="110" rx="14" fill="rgba(0,243,255,0.10)" stroke="#00F3FF" stroke-width="4"/>
+  <text class="m sh" x="270" y="260" font-size="48" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">scr</text>
+  <line x1="430" y1="260" x2="640" y2="260" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <path d="M 626 246 L 640 260 L 626 274" fill="none" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <rect x="680" y="205" width="1090" height="110" rx="14" fill="rgba(8,12,18,0.78)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+  <text class="f sh" x="730" y="260" font-size="34" fill="#FFFFFF" dominant-baseline="central">Simplify, compress, and repeat your response.</text>
+
+  <!-- row 2: eli -->
+  <rect class="cGlow g2" x="139" y="404" width="262" height="132" rx="22" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  <rect x="150" y="415" width="240" height="110" rx="14" fill="rgba(0,243,255,0.10)" stroke="#00F3FF" stroke-width="4"/>
+  <text class="m sh" x="270" y="470" font-size="48" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">eli</text>
+  <line x1="430" y1="470" x2="640" y2="470" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <path d="M 626 456 L 640 470 L 626 484" fill="none" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <rect x="680" y="415" width="1090" height="110" rx="14" fill="rgba(8,12,18,0.78)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+  <text class="f sh" x="730" y="470" font-size="34" fill="#FFFFFF" dominant-baseline="central">Explain this like I&#8217;m 18. Simplify. Shorten.</text>
+
+  <!-- row 3: foc -->
+  <rect class="cGlow g3" x="139" y="614" width="262" height="132" rx="22" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  <rect x="150" y="625" width="240" height="110" rx="14" fill="rgba(0,243,255,0.10)" stroke="#00F3FF" stroke-width="4"/>
+  <text class="m sh" x="270" y="680" font-size="48" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">foc</text>
+  <line x1="430" y1="680" x2="640" y2="680" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <path d="M 626 666 L 640 680 L 626 694" fill="none" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <rect x="680" y="625" width="1090" height="110" rx="14" fill="rgba(8,12,18,0.78)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+  <text class="f sh" x="730" y="680" font-size="34" fill="#FFFFFF" dominant-baseline="central">Focus on what matters most. Find the true signal.</text>
+
+  <!-- row 4: ref -->
+  <rect class="cGlow g4" x="139" y="824" width="262" height="132" rx="22" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  <rect x="150" y="835" width="240" height="110" rx="14" fill="rgba(0,243,255,0.10)" stroke="#00F3FF" stroke-width="4"/>
+  <text class="m sh" x="270" y="890" font-size="48" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">ref</text>
+  <line x1="430" y1="890" x2="640" y2="890" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <path d="M 626 876 L 640 890 L 626 904" fill="none" stroke="rgba(0,243,255,0.7)" stroke-width="4"/>
+  <rect x="680" y="835" width="1090" height="110" rx="14" fill="rgba(8,12,18,0.78)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
+  <text class="f sh" x="730" y="890" font-size="34" fill="#FFFFFF" dominant-baseline="central">Rewrite your response with reference points.</text>
+
+  <!-- caption -->
+  <text class="f" x="960" y="1030" font-size="30" letter-spacing="3" fill="rgba(255,255,255,0.5)" text-anchor="middle" dominant-baseline="central">SHORT CODES THE SYSTEM PROMPT EXPANDS ON SIGHT</text>
+</svg>

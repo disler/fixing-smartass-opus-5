@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .sans{font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif;fill:#FFFFFF}
+    .tsh{filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8))}
+    .lsh{filter:drop-shadow(3px 3px 6px rgba(0,0,0,.9))}
+
+    /* ---- Looping build: one 12s cycle, delays baked into keyframe offsets ---- */
+
+    /* Node: fade in, slide down (150-900ms) */
+    @keyframes knode{0%,1.25%{opacity:0;transform:translateY(-24px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}7.5%,100%{opacity:1;transform:translateY(0)}}
+    .node{animation:knode 12s linear infinite}
+
+    /* Connector (900-1350ms) */
+    @keyframes kconn{0%,7.5%{opacity:0}11.25%,100%{opacity:1}}
+    @keyframes kconnD{0%,7.5%{stroke-dashoffset:20.3}11.25%,100%{stroke-dashoffset:0}}
+    @keyframes khead{0%,10.683%{opacity:0}11.25%,100%{opacity:1}}
+    .conn{animation:kconn 12s linear infinite}
+    .connLine{stroke-dasharray:20.3;animation:kconnD 12s linear infinite}
+    .connHead{animation:khead 12s linear infinite}
+
+    /* Card group fade (1350-1725ms) */
+    @keyframes kcardG{0%,11.25%{opacity:0}14.375%,100%{opacity:1}}
+    .cardG{animation:kcardG 12s linear infinite}
+
+    /* Card geometry: expand 1350-2100, hold, compress 6100-7200 */
+    @keyframes kgeo{
+      0%,11.25%{x:300px;width:1320px;height:59.5px;stroke:#FFB020;animation-timing-function:cubic-bezier(0.33,1,0.68,1)}
+      17.5%{x:300px;width:1320px;height:540px;stroke:#FFB020}
+      50.833%{x:300px;width:1320px;height:540px;stroke:#FFB020;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}
+      60%,100%{x:570px;width:780px;height:170px;stroke:#00FF10}
+    }
+    .cardRect{animation:kgeo 12s linear infinite}
+    @keyframes ktail{0%,50.833%{fill:#FFB020}50.833%{animation-timing-function:cubic-bezier(0.65,0,0.35,1)}60%,100%{fill:#00FF10}}
+    .tail{animation:ktail 12s linear infinite}
+
+    /* Body line entries: opacity + slide, staggered 2100+160k ms */
+    @keyframes kop0{0%,17.5%{opacity:0}19.333%,100%{opacity:1}}
+    @keyframes kop1{0%,18.833%{opacity:0}20.667%,100%{opacity:1}}
+    @keyframes kop2{0%,20.167%{opacity:0}22%,100%{opacity:1}}
+    @keyframes kop3{0%,21.5%{opacity:0}23.333%,100%{opacity:1}}
+    @keyframes kop4{0%,22.833%{opacity:0}24.667%,100%{opacity:1}}
+    @keyframes kop5{0%,24.167%{opacity:0}26%,100%{opacity:1}}
+    @keyframes kop6{0%,25.5%{opacity:0}27.333%,100%{opacity:1}}
+    @keyframes ksl0{0%,17.5%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}21%,100%{transform:translateX(0)}}
+    @keyframes ksl1{0%,18.833%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}22.333%,100%{transform:translateX(0)}}
+    @keyframes ksl2{0%,20.167%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}23.667%,100%{transform:translateX(0)}}
+    @keyframes ksl3{0%,21.5%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}25%,100%{transform:translateX(0)}}
+    @keyframes ksl4{0%,22.833%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}26.333%,100%{transform:translateX(0)}}
+    @keyframes ksl5{0%,24.167%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}27.667%,100%{transform:translateX(0)}}
+    @keyframes ksl6{0%,25.5%{transform:translateX(-18px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}29.167%,100%{transform:translateX(0)}}
+    .e0{animation:kop0 12s linear infinite,ksl0 12s linear infinite}
+    .e1{animation:kop1 12s linear infinite,ksl1 12s linear infinite}
+    .e2{animation:kop2 12s linear infinite,ksl2 12s linear infinite}
+    .e3{animation:kop3 12s linear infinite,ksl3 12s linear infinite}
+    .e4{animation:kop4 12s linear infinite,ksl4 12s linear infinite}
+    .e5{animation:kop5 12s linear infinite,ksl5 12s linear infinite}
+    .e6{animation:kop6 12s linear infinite,ksl6 12s linear infinite}
+
+    /* Survivors morph into the green answer (6100-7200ms) */
+    @keyframes ksv0{0%,50.833%{x:392px;y:472px;width:1080px;fill:rgba(255,255,255,0.55);animation-timing-function:cubic-bezier(0.65,0,0.35,1)}60%,100%{x:662px;y:452px;width:560px;fill:rgba(0,255,16,0.9)}}
+    @keyframes ksv1{0%,50.833%{x:392px;y:538px;width:960px;fill:rgba(255,255,255,0.55);animation-timing-function:cubic-bezier(0.65,0,0.35,1)}60%,100%{x:662px;y:500px;width:400px;fill:rgba(0,255,16,0.9)}}
+    .s0{animation:ksv0 12s linear infinite}
+    .s1{animation:ksv1 12s linear infinite}
+
+    /* Non-survivors drain against the collapse (6100-6595ms) */
+    @keyframes kd2{0%,50.833%{y:604px;width:1140px;opacity:1;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}54.958%,100%{y:475px;width:342px;opacity:0}}
+    @keyframes kd3{0%,50.833%{y:670px;width:880px;opacity:1;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}54.958%,100%{y:475px;width:264px;opacity:0}}
+    @keyframes kd4{0%,50.833%{y:736px;width:1020px;opacity:1;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}54.958%,100%{y:475px;width:306px;opacity:0}}
+    @keyframes kd5{0%,50.833%{y:802px;width:800px;opacity:1;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}54.958%,100%{y:475px;width:240px;opacity:0}}
+    @keyframes kd6{0%,50.833%{y:868px;width:640px;opacity:1;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}54.958%,100%{y:475px;width:192px;opacity:0}}
+    .d2{animation:kd2 12s linear infinite}
+    .d3{animation:kd3 12s linear infinite}
+    .d4{animation:kd4 12s linear infinite}
+    .d5{animation:kd5 12s linear infinite}
+    .d6{animation:kd6 12s linear infinite}
+
+    /* Red gutter flags in (3900+230k ms), out with the compress */
+    @keyframes kfo0{0%,32.5%{opacity:0}34.167%,100%{opacity:1}}
+    @keyframes kfo1{0%,34.417%{opacity:0}36.083%,100%{opacity:1}}
+    @keyframes kfo2{0%,36.333%{opacity:0}38%,100%{opacity:1}}
+    @keyframes kfo3{0%,38.25%{opacity:0}39.917%,100%{opacity:1}}
+    @keyframes kfs0{0%,32.5%{transform:translateX(-10px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}35.5%,100%{transform:translateX(0)}}
+    @keyframes kfs1{0%,34.417%{transform:translateX(-10px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}37.417%,100%{transform:translateX(0)}}
+    @keyframes kfs2{0%,36.333%{transform:translateX(-10px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}39.333%,100%{transform:translateX(0)}}
+    @keyframes kfs3{0%,38.25%{transform:translateX(-10px);animation-timing-function:cubic-bezier(0.33,1,0.68,1)}41.25%,100%{transform:translateX(0)}}
+    .f0{animation:kfo0 12s linear infinite,kfs0 12s linear infinite}
+    .f1{animation:kfo1 12s linear infinite,kfs1 12s linear infinite}
+    .f2{animation:kfo2 12s linear infinite,kfs2 12s linear infinite}
+    .f3{animation:kfo3 12s linear infinite,kfs3 12s linear infinite}
+    @keyframes kflagOut{0%,50.833%{opacity:1}53.583%,100%{opacity:0}}
+    .flagOut{animation:kflagOut 12s linear infinite}
+
+    /* BEFORE label: in at 1700, out by 6000 */
+    @keyframes kbefore{0%,14.167%{opacity:0}19.167%{opacity:1}45.833%{opacity:1}50%,100%{opacity:0}}
+    @keyframes kbeforeR{0%,14.167%{opacity:0}19.167%{opacity:0.9}45.833%{opacity:0.9}50%,100%{opacity:0}}
+    .beforeLbl{animation:kbefore 12s linear infinite}
+    .beforeRule{animation:kbeforeR 12s linear infinite}
+
+    /* AFTER label (7350-7950ms) */
+    @keyframes kafter{0%,61.25%{opacity:0;transform:translateY(24px)}66.25%,100%{opacity:1;transform:translateY(0)}}
+    .afterG{animation:kafter 12s linear infinite}
+
+    /* Held tail: the answer breathes twice, then the cycle restarts */
+    @keyframes khalo{0%,66.667%{opacity:0;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}74.583%{opacity:0.32;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}82.5%{opacity:0.06;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}90.417%{opacity:0.32;animation-timing-function:cubic-bezier(0.65,0,0.35,1)}98.333%,100%{opacity:0}}
+    .halo{animation:khalo 12s linear infinite}
+  </style>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- ================= Model node ================= -->
+  <g class="node">
+    <path d="M 1082 196 L 1021 301.66 L 899 301.66 L 838 196 L 899 90.34 L 1021 90.34 Z"
+          fill="rgba(8,12,18,0.78)" stroke="#00F3FF" stroke-width="5"/>
+    <path d="M 1079 196 L 1018.5 300.06 L 901.5 300.06 L 841 196 L 901.5 91.94 L 1018.5 91.94 Z"
+          fill="rgba(0,243,255,0.16)"/>
+    <!-- Claude asterisk (vector) -->
+    <g stroke="#E5683C" stroke-width="7" stroke-linecap="round" class="tsh">
+      <line x1="965" y1="166" x2="992" y2="166"/>
+      <line x1="964.2" y1="168.7" x2="985.2" y2="182.3"/>
+      <line x1="962" y1="170.6" x2="973.4" y2="196.1"/>
+      <line x1="959.2" y1="170.9" x2="955.5" y2="194.6"/>
+      <line x1="956.7" y1="169.7" x2="938.6" y2="189.8"/>
+      <line x1="955.2" y1="167.3" x2="931" y2="173.8"/>
+      <line x1="955.2" y1="164.5" x2="928.6" y2="155.8"/>
+      <line x1="956.9" y1="162.1" x2="941.7" y2="143.5"/>
+      <line x1="959.5" y1="161" x2="956.7" y2="134.2"/>
+      <line x1="962.3" y1="161.5" x2="973.6" y2="139.3"/>
+      <line x1="964.3" y1="163.5" x2="988.6" y2="149.5"/>
+    </g>
+    <circle cx="960" cy="166" r="6.5" fill="#E5683C"/>
+    <text x="960" y="244" class="sans lsh" font-size="42" letter-spacing="6"
+          text-anchor="middle" dominant-baseline="central">OPUS 5</text>
+  </g>
+
+  <!-- ================= Connector ================= -->
+  <g class="conn">
+    <line class="connLine" x1="960" y1="313.7" x2="960" y2="334" stroke="#00F3FF" stroke-width="5"/>
+    <path class="connHead" d="M 960 358 L 940 334 L 980 334 Z" fill="#00F3FF"/>
+  </g>
+
+  <!-- ================= Speech card ================= -->
+  <g class="cardG">
+    <rect class="halo" x="563" y="393" width="794" height="184" rx="27"
+          fill="none" stroke="#00FF10" stroke-width="14" opacity="0"/>
+    <rect class="cardRect" x="300" y="400" width="1320" height="59.5" rx="20"
+          fill="rgba(8,12,18,0.78)" stroke="#FFB020" stroke-width="4"/>
+    <path class="tail" d="M 928 402 L 960 370 L 992 402 Z" fill="#FFB020"/>
+
+    <!-- Abstract body lines -->
+    <g class="e0"><rect class="s0" x="392" y="472" width="1080" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e1"><rect class="s1" x="392" y="538" width="960" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e2"><rect class="d2" x="392" y="604" width="1140" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e3"><rect class="d3" x="392" y="670" width="880" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e4"><rect class="d4" x="392" y="736" width="1020" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e5"><rect class="d5" x="392" y="802" width="800" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+    <g class="e6"><rect class="d6" x="392" y="868" width="640" height="20" rx="10" fill="rgba(255,255,255,0.55)"/></g>
+
+    <!-- Red gutter flags -->
+    <g class="f0"><path class="flagOut" d="M 346 533 L 361 548 L 346 563 L 331 548 Z" fill="#EF4444"/></g>
+    <g class="f1"><path class="flagOut" d="M 346 599 L 361 614 L 346 629 L 331 614 Z" fill="#EF4444"/></g>
+    <g class="f2"><path class="flagOut" d="M 346 731 L 361 746 L 346 761 L 331 746 Z" fill="#EF4444"/></g>
+    <g class="f3"><path class="flagOut" d="M 346 863 L 361 878 L 346 893 L 331 878 Z" fill="#EF4444"/></g>
+  </g>
+
+  <!-- ================= BEFORE ================= -->
+  <line class="beforeRule" x1="820" y1="974" x2="1100" y2="974" stroke="#FFB020" stroke-width="4"/>
+  <text class="beforeLbl sans lsh" x="960" y="1018" font-size="60" letter-spacing="10"
+        text-anchor="middle" dominant-baseline="central">BEFORE</text>
+
+  <!-- ================= AFTER ================= -->
+  <g class="afterG">
+    <line x1="820" y1="604" x2="1100" y2="604" stroke="#00FF10" stroke-width="4" opacity="0.9"/>
+    <text class="sans lsh" x="960" y="648" font-size="60" letter-spacing="10"
+          text-anchor="middle" dominant-baseline="central">AFTER</text>
+  </g>
+</svg>
